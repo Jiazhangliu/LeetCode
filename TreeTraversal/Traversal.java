@@ -26,6 +26,15 @@ public class Traversal {
 		System.err.print(n.value  + " ");
 	}
 	
+	public void mirror(Node root){
+		if(root == null) {return;}
+		mirror(root.left);
+		mirror(root.right);
+		Node temp = root.left;
+		root.left = root.right;
+		root.right = temp;
+	}
+	
 	
 	public static void main(String args[]){
 		Node root = new Node(10);
@@ -61,6 +70,22 @@ public class Traversal {
 		traversal.preorder(root);
 		System.err.println();
 		
+		traversal.postorder(root);
+		System.err.println();
+		
+		
+		traversal.mirror(root);
+		System.err.println("After mirror:");
+		
+		System.err.print("Inorder: 	");
+		traversal.inorder(root);
+		System.err.println();
+		
+		System.err.print("Preorder: 	");
+		traversal.preorder(root);
+		System.err.println();
+		
+		System.err.print("postorder: 	");
 		traversal.postorder(root);
 		System.err.println();
 	}
