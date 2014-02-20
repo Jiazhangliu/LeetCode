@@ -1,4 +1,3 @@
-
 public class Traversal {
 	Node t;
 	
@@ -16,14 +15,14 @@ public class Traversal {
 	public void preorder(Node n){
 		if (n == null) {return;}
 		System.err.print(n.value  + " ");
-		inorder(n.left);
-		inorder(n.right);
+		preorder(n.left);
+		preorder(n.right);
 	}
 	
 	public void postorder(Node n){
 		if (n == null) {return;}
-		inorder(n.left);
-		inorder(n.right);
+		postorder(n.left);
+		postorder(n.right);
 		System.err.print(n.value  + " ");
 	}
 	
