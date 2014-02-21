@@ -1,4 +1,3 @@
-
 public class Traversal {
 	Node t;
 	
@@ -16,15 +15,24 @@ public class Traversal {
 	public void preorder(Node n){
 		if (n == null) {return;}
 		System.err.print(n.value  + " ");
-		inorder(n.left);
-		inorder(n.right);
+		preorder(n.left);
+		preorder(n.right);
 	}
 	
 	public void postorder(Node n){
 		if (n == null) {return;}
-		inorder(n.left);
-		inorder(n.right);
+		postorder(n.left);
+		postorder(n.right);
 		System.err.print(n.value  + " ");
+	}
+	
+	public void mirror(Node root){
+		if(root == null) {return;}
+		mirror(root.left);
+		mirror(root.right);
+		Node temp = root.left;
+		root.left = root.right;
+		root.right = temp;
 	}
 	
 	
@@ -62,6 +70,22 @@ public class Traversal {
 		traversal.preorder(root);
 		System.err.println();
 		
+		traversal.postorder(root);
+		System.err.println();
+		
+		
+		traversal.mirror(root);
+		System.err.println("After mirror:");
+		
+		System.err.print("Inorder: 	");
+		traversal.inorder(root);
+		System.err.println();
+		
+		System.err.print("Preorder: 	");
+		traversal.preorder(root);
+		System.err.println();
+		
+		System.err.print("postorder: 	");
 		traversal.postorder(root);
 		System.err.println();
 	}
